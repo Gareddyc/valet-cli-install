@@ -1,0 +1,15 @@
+name: terraform-plan!!!!!!
+on:  
+  workflow_dispatch:
+
+jobs:
+  Docker-login:
+     runs-on: self-hosted
+
+     steps: 
+     - name: Login to GitHub Container Registry
+       uses: docker/login-action@v1
+       with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
